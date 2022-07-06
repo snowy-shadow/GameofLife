@@ -1,57 +1,50 @@
-// GameofLife.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "UI.h"
+#include "map.h"
+#include "window.h"
 
 int main()
 {
-    void Initalize();
-    // Screen
-    int ScreenWidth = 1280, ScreenHeight = 720;
-    sf::RenderWindow window(sf::VideoMode(ScreenWidth, ScreenHeight), "Game of Life");
+    auto window = CreateWindow(/*{ScreenResolution}, "title"*/);
 
-    // Anti aliasing
-    sf::ContextSettings AntiAliasing;
-    AntiAliasing.antialiasingLevel = 8;
+    //void Initalize();
+    //// Screen
+    //
 
-    // FPS Limit
-    window.setFramerateLimit(60);
+    //// Camera
+    //sf::View Camera(sf::Vector2f(0, 0), sf::Vector2f(300, 200));
+    //window.setView(Camera);
 
-    // Camera
-    sf::View Camera(sf::Vector2f(0, 0), sf::Vector2f(300, 200));
-    window.setView(Camera);
+    //// Cursor Position
+    //sf::Vector2f CursorPosition;
+    //bool CursorMoving = false;
 
-    // Cursor Position
-    sf::Vector2f CursorPosition;
-    bool CursorMoving = false;
+    //// Event
+    //sf::Event event;
 
-    // Event
-    sf::Event event;
+    //World world;
 
-    World world;
+    //UI UI;
 
-    UI UI;
-
-    bool menu = false;
-    sf::RectangleShape rectangle(sf::Vector2f(120, 50));
+    //bool menu = false;
+    //sf::RectangleShape rectangle(sf::Vector2f(120, 50));
 
 
-    std::cout << Camera.getSize().x << "," << Camera.getSize().y;
-    while (window.isOpen())
-    {
-        // MouseControls
-        UI.MouseControl(event, window, Camera, CursorPosition, CursorMoving);
-        UI.KeyboardControl(window, event, Camera, menu);
-        window.clear();
-        window.draw(rectangle);
-        //                                           Include Vectors for draw function
-        if (menu == true)
-        {
+    //std::cout << Camera.getSize().x << "," << Camera.getSize().y;
+    //while (window.isOpen())
+    //{
+    //    // MouseControls
+    //    UI.MouseControl(event, window, Camera, CursorPosition, CursorMoving);
+    //    UI.KeyboardControl(window, event, Camera, menu);
+    //    window.clear();
+    //    window.draw(rectangle);
+    //    //                                           Include Vectors for draw function
+    //    if (menu == true)
+    //    {
 
-        }
-        window.display();
-    }
+    //    }
+    //    window.display();
+    //}
 }
 
 

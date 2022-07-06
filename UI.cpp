@@ -1,8 +1,16 @@
 #include "UI.h"
 
-void UI::Window()
+UI::UI(int ScreenWidth, int ScreenHeight)
 {
+    m_ScreenWidth = ScreenWidth;
+    m_ScreenHeight = ScreenHeight;
+    m_Window (sf::VideoMode(ScreenWidth, ScreenHeight), "Game of Life");
 
+    // Anti aliasing
+    m_AntiAliasing.antialiasingLevel = 8;
+
+    // FPS Limit
+    m_Window.setFramerateLimit(60);
 }
 
 void UI::MouseControl(sf::Event& event, sf::RenderWindow& window, sf::View& Camera, sf::Vector2f& CursorPosition, bool& CursorMoving)
@@ -107,11 +115,15 @@ void UI::Draw()
 
 }
 
-void Menus::MainMenu()
+void MainMenu::Window()
 {
     sf::RectangleShape rectangle1;
     rectangle1.setFillColor(sf::Color(128, 128, 128, 128));
     rectangle1.setSize(sf::Vector2f(ScreenWidth, ScreenHeight));
     rectangle1.setPosition(Camera.x, Camera.y);
     window.draw(rectangle1);
+}
+
+void Settings::Window()
+{
 }
